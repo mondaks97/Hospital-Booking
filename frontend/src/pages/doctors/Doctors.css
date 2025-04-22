@@ -1,0 +1,13 @@
+.doctors{
+  display: flex;
+    flex-direction: column; /* Default: flex-col */
+    align-items: flex-start; /* items-start */
+    gap: 1.25rem; /* gap-5 (5 * 0.25rem = 1.25rem) */
+    margin-top: 1.25rem; /* mt-5 (5 * 0.25rem = 1.25rem) */
+}
+
+@media (min-width: 640px) { /* sm breakpoint (default: 640px in Tailwind) */
+  .doctors {
+    flex-direction: row; /* flex-row for sm */
+  }
+}
