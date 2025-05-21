@@ -61,7 +61,7 @@ const Doctors = () => {
             <p className="text-gray-500">Loading doctors...</p>
           ) : filterDoc.length === 0 ? (
             // 🆕 No doctors found
-            <p className="text-red-500">No match result &quot;{specialty}&quot;.</p>
+            <p className="text-red-500 flex">No match result &quot;{specialty}&quot;.</p>
           ) : (
             filterDoc.map((item, index) => (
               <div
