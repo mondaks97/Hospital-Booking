@@ -29,7 +29,7 @@ app.get('/api/status',(req,res)=>{
 // add if statement for vercel
 if (process.env.NODE_EV !== "production") {
     const port = process.env.PORT || 4000
-    server.listen(port, ()=> console.log("server is running on PORT: ", + port))
+    app.listen(port, ()=> console.log("server is running on PORT: ", + port))
 }
 
 // Export server for vercel
