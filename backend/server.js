@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
 import connectDB from './config/mongodb.js'
-import connectCloundinary from './config/cloudinary.js'
+import connectCloudinary from './config/cloudinary.js'
 import adminRouter from './routes/AdminRoute.js'
 import doctorRouter from './routes/DoctorRoute.js'
 import userRouter from './routes/UserRoute.js'
@@ -10,9 +10,8 @@ import userRouter from './routes/UserRoute.js'
 
 //app config
 const app = express()
-const port = process.env.PORT || 4000
 connectDB()
-connectCloundinary()
+connectCloudinary()
 
 // middleware
 app.use(express.json())
@@ -27,4 +26,11 @@ app.get('/',(req,res)=>{
     res.send('API WORKING')
 })
 
-app.listen(port, ()=> console.log("server started", port))
+// add if statement for vercel
+if (process.env.NODE_EV !== "production") {
+    const port = process.env.PORT || 4000
+    server.listen(port, ()=> console.log("server is running on PORT: ", + port))
+}
+
+// Export server for vercel
+export default server;
